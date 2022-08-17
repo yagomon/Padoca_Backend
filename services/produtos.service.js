@@ -49,12 +49,7 @@ const createProdutoService = (newPaleta) => {
   newPaleta.id = id
   produtos.push(newPaleta);
 
-  return(
-    {
-      message:"Nova paleta criada com sucesso",
-      ...newPaleta
-    }
-  )
+  return newPaleta;
 }
 
 const updateProdutoService = (id, produtoUpdated) => {
@@ -66,9 +61,13 @@ const updateProdutoService = (id, produtoUpdated) => {
 }
 
 const deleteProdutoService = (id)=>{
-  const produtoIndex = produtos.findIndex((produto)=>produto.id == id);
-  
-  return produtos.splice(produtoIndex,1)
+  const produtoIndex = produtos.findIndex((produto)=>produto.id === id);
+
+  if(produtos[produtoIndex]){
+    return produtos.splice(produtoIndex,1)
+  } else {
+    return {error:"Produto não encontrado!"}
+  }
 }
 
 module.exports = {
