@@ -1,0 +1,28 @@
+[  {
+    "nome": "Pão Francês",
+    "ingredientes": "lorem ipsun",
+    "foto": "assets/images/pao-frances.png",
+    "preco": 0.70
+  },
+
+  {
+    "nome": "Baguete",
+    "ingredientes": "Lorem ipsun",
+    "foto": "assets/images/baguete.png",
+    "preco": 3.00
+  },
+
+  {
+    "nome": "Baguete Francesa Amanteigada",
+    "ingredientes": "lorem ipsun",
+    "foto": "assets/images/baguete-francesa-manteiga.png",
+    "preco": 2.70
+  },
+
+  {
+    "nome": "Baguete Francesa de Queijo",
+    "ingredientes": "lorem ipsum",
+    "foto": "assets/images/baguete-francesa-queijo.png'",
+    "preco": 3.10
+  }
+]
