@@ -3,25 +3,23 @@ const produtosController = require('../controllers/produtos.controller');
 const Produtos = require('../models/Produto');
 
 const findAllProdutosService = async () => {
-  const produtos = await Produtos.find();
-  return produtos
+  const allProdutos = await Produtos.find();
+  return allProdutos
 };
 
 const findProdutoByIdService = async (id) => { 
-  const produto = await Produtos.findById(id);
-  return produto
+  const findOneProduto = await Produtos.findById(id);
+  return findOneProduto
 };
 
 const createProdutoService = async (newProduto) => {
-  const Produto = await Produtos.create(newProduto);
-  
-  return Produto;
+  const createdProduto = await Produtos.create(newProduto);
+  return createdProduto;
 }
 
 const updateProdutoService = async (id, produtoUpdated) => {
-  const produto = await Produtos.findByIdAndUpdate(id, produtoUpdated);
-  
-  return produto;
+  const updatedProduto = await Produtos.findByIdAndUpdate(id, produtoUpdated);
+  return updatedProduto;
 }
 
 const deleteProdutoService = async (id)=>{
