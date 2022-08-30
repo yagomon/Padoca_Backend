@@ -18,13 +18,13 @@ const createProdutoService = async (newProduto) => {
 }
 
 const updateProdutoService = async (id, produtoUpdated) => {
-  const updatedProduto = await Produtos.findByIdAndUpdate(id, produtoUpdated);
+  const updatedProduto = await Produtos.findByIdAndUpdate(id, produtoUpdated, {returnDocument: 'after'});
   return updatedProduto;
 }
 
 const deleteProdutoService = async (id)=>{
   const deleteProduto = await Produtos.findByIdAndRemove(id)
-  return {message: "Produto deletado com suceso!"}
+  return deleteProduto;
 }
 
 module.exports = {
