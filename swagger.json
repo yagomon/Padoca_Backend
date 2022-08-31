@@ -1,0 +1,216 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Padoca",
+    "description": "API para CRUD pães e produtos de padaria",
+    "termsOfService": "",
+    "contact": {
+      "email": "yago.monteiroo@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3001",
+      "description": "API de teste"
+    },
+    {
+      "url": "https://padoca-backend.herokuapp.com/paletas",
+      "description": "API de produção"
+    }
+  ],
+  "paths": {
+    "/produtos": {
+      "get": {
+        "summary": "Lista de todos os produtos",
+        "description": "Rota responsável por listar todos os Produtos",
+        "tags": ["Produtos"],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Produtos"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/produtos/{id}": {
+      "get": {
+        "summary": "Busca o produto pelo ID",
+        "description": "Rota responsável por buscar um produto pelo ID",
+        "tags": ["Produtos"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id d o produto para a busca",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Produtos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/produtos/create": {
+      "post": {
+        "summary": "Cadastrar um novo produto",
+        "description": "Rota responsável por cadastrar um produto novo",
+        "tags": ["Produtos"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Produtos"
+              },
+              "examples": {
+                "Paletas": {
+                  "value": {
+                    "nome": "Pão francês",
+                    "Ingredientes": "Água, farinha e fermento",
+                    "foto": "./assets/images/paofrances.png",
+                    "preco": 0.7
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Produtos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/produtos/update/{id}": {
+      "put": {
+        "summary": "Editar um produto pelo ID",
+        "description": "Rota responsável por editar um produto pelo ID",
+        "tags": ["Produtos"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id do produto para a busca",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Produtos"
+              },
+              "examples": {
+                "Paletas": {
+                  "value": {
+                    "nome": "Biscoitinhos Santa Clara",
+                    "ingredientes": "Farinha, fermento, fondant da casa e limão",
+                    "foto": "./assets/images/santaclara.png",
+                    "preco": 3
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Produtos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/produtos/delete/{id}": {
+      "delete": {
+        "summary": "Apagar um produto pelo ID",
+        "description": "Rota responsável por apagar um produto pelo ID",
+        "tags": ["Produtos"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id do produto para exclusão",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Produtos": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "ingredientes": {
+            "type": "string"
+          },
+          "foto": {
+            "type": "string"
+          },
+          "preco": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

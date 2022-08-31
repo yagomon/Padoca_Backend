@@ -12,7 +12,7 @@ connectToDatabase();
 
 app.use(express.json());
 app.use(cors());
-app.use("/produtos", routes)
+app.use("/", routes)
 
 
 
