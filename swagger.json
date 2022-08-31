@@ -91,7 +91,7 @@
                 "Paletas": {
                   "value": {
                     "nome": "Pão francês",
-                    "Ingredientes": "Água, farinha e fermento",
+                    "ingredientes": "Água, farinha e fermento",
                     "foto": "./assets/images/paofrances.png",
                     "preco": 0.7
                   }
