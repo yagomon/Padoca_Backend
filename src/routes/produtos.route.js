@@ -9,13 +9,13 @@ router.get('/api-docs', swaggerUi.setup(swaggerDocument));
 
 router.get('/produtos', produtosController.findAllProdutosController);
 
-router.get('/:id', validId, produtosController.findProdutoByIdController);
+router.get('/produto/:id', validId, produtosController.findProdutoByIdController);
 
-router.post('/create', validObjectBody, produtosController.createProdutoController);
+router.post('/produto/create', validObjectBody, produtosController.createProdutoController);
 
-router.put('/update/:id', validId, validObjectBody, produtosController.updateProdutoController);
+router.put('/produto/update/:id', validId, validObjectBody, produtosController.updateProdutoController);
 
-router.delete('/delete/:id', validId, produtosController.deleteProdutoController);
+router.delete('/produto/delete/:id', validId, produtosController.deleteProdutoController);
 
 
 module.exports = router;

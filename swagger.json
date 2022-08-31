@@ -45,7 +45,7 @@
         }
       }
     },
-    "/produtos/{id}": {
+    "produto/{id}": {
       "get": {
         "summary": "Busca o produto pelo ID",
         "description": "Rota responsável por buscar um produto pelo ID",
@@ -76,7 +76,7 @@
         }
       }
     },
-    "/produtos/create": {
+    "produto/create": {
       "post": {
         "summary": "Cadastrar um novo produto",
         "description": "Rota responsável por cadastrar um produto novo",
@@ -118,7 +118,7 @@
         }
       }
     },
-    "/produtos/update/{id}": {
+    "produto/update/{id}": {
       "put": {
         "summary": "Editar um produto pelo ID",
         "description": "Rota responsável por editar um produto pelo ID",
@@ -168,7 +168,7 @@
         }
       }
     },
-    "/produtos/delete/{id}": {
+    "produto/delete/{id}": {
       "delete": {
         "summary": "Apagar um produto pelo ID",
         "description": "Rota responsável por apagar um produto pelo ID",
